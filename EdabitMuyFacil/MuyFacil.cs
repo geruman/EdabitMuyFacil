@@ -33,6 +33,67 @@ namespace EdabitMuyFacil
             return chickens*2+cows*4+pigs*4;
         }
 
-        //Hacer hasta Profitable Gamble.
+        public static int FootbalPoints(int wins, int draws, int looses)
+        {
+            int puntos = 0;
+            puntos = puntos+wins*3;
+            puntos = puntos+draws;
+            return puntos;
+
+        }
+        public static object GetFirstValue(object[] array)
+        {
+            return array[0];
+        }
+        public static string Greeting(string name)
+        {
+            if (name=="Mubashir")
+            {
+                return "Hello, my Love!";
+            }
+            return "Hello, "+name+"!";
+        }
+        public static int Convert(int hours, int minutes)
+        {
+            int total = hours * 3600;
+            total = total + minutes * 60;
+            return total;
+        }
+        public static int NextEdge(int side1, int side2)
+        {
+            return side1+side2-1;
+        }
+        public static int InchesToFeet(int inches)
+        {
+            return (int)(inches/12);
+        }
+        public static bool DivisibleByFive(int value)
+        {
+            if (value%5==0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public static int Squared(int value)
+        {
+            return value*value;
+        }
+        public static bool DividesEvenly(int value, int divisor)
+        {
+            return value%divisor==0;
+        }
+        public static int Frames(int minutes, int fps)
+        {
+            return (fps*60)*minutes;
+        }
+        public static bool ProfitableGamble(double prob, int prize, double pay)
+        {
+            return ((prob*prize)>pay);
+        }
     }
 }
