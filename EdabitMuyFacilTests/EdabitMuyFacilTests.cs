@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using EdabitMuyFacil;
+using System.Collections.Generic;
 
 namespace EdabitMuyFacilTests
 {
@@ -87,7 +88,7 @@ namespace EdabitMuyFacilTests
         [TestCase(0, 0, 15, ExpectedResult = 0)]
         public int FootballPointsTests(int wins, int draws, int looses)
         {
-            return MuyFacil.FootbalPoints(wins,draws,looses);
+            return MuyFacil.FootbalPoints(wins, draws, looses);
         }
         [Test]
         [TestCase(new object[] { 5, 6, 7 }, ExpectedResult = 5)]
@@ -211,6 +212,173 @@ namespace EdabitMuyFacilTests
         {
             return MuyFacil.ProfitableGamble(prob, prize, pay);
         }
+
+        [Test]
+        [TestCase(1, ExpectedResult = 0)]
+        [TestCase(0, ExpectedResult = 1)]
+        public int FlipIntBoolTest(int ib)
+        {
+            return MuyFacil.FlipIntBool(ib);
+        }
+
+        [Test]
+        [TestCase(1, ExpectedResult = false)]
+        [TestCase(100, ExpectedResult = true)]
+        [TestCase(1000, ExpectedResult = true)]
+        [TestCase(111000, ExpectedResult = true)]
+        [TestCase(-1, ExpectedResult = false)]
+        [TestCase(0, ExpectedResult = true)]
+        [TestCase(-100, ExpectedResult = true)]
+        public bool DivisibleByOneHundredTest(int num)
+        {
+            return MuyFacil.DivisibleByOneHundred(num);
+        }
+
+        [Test]
+        [TestCase(2013, 12, 24, ExpectedResult = true)]
+        [TestCase(2013, 0, 23, ExpectedResult = false)]
+        [TestCase(3000, 12, 24, ExpectedResult = true)]
+        public bool IsItChristmasEveTest(int year, int month, int day)
+        {
+            return MuyFacil.IsItChristmasEve(month, day);
+        }
+
+        [Test]
+        [TestCase(1, ExpectedResult = 6)]
+        [TestCase(2, ExpectedResult = 24)]
+        [TestCase(3, ExpectedResult = 54)]
+        [TestCase(4, ExpectedResult = 96)]
+        [TestCase(5, ExpectedResult = 150)]
+        [TestCase(6, ExpectedResult = 216)]
+        [TestCase(7, ExpectedResult = 294)]
+        [TestCase(8, ExpectedResult = 384)]
+        [TestCase(9, ExpectedResult = 486)]
+        [TestCase(10, ExpectedResult = 600)]
+        [TestCase(11, ExpectedResult = 726)]
+        [TestCase(12, ExpectedResult = 864)]
+        [TestCase(13, ExpectedResult = 1014)]
+        [TestCase(14, ExpectedResult = 1176)]
+        [TestCase(15, ExpectedResult = 1350)]
+
+        public int HowManyStickersTest(int sideLength)
+        {
+            return MuyFacil.HowManyStickers(sideLength);
+        }
+
+        [Test]
+        public void PrintArrayTest()
+        {
+            List<int> myValues = new List<int>(new int[] { 1 });
+            Assert.AreEqual(myValues, MuyFacil.PrintArray(1));
+
+            myValues = new List<int>(new int[] { 1, 2 });
+            Assert.AreEqual(myValues, MuyFacil.PrintArray(2));
+
+            myValues = new List<int>(new int[] { 1, 2, 3, 4, 5, 6 });
+            Assert.AreEqual(myValues, MuyFacil.PrintArray(6));
+        }
+
+        [Test]
+        [TestCase(1, ExpectedResult = 0)]
+        [TestCase(2, ExpectedResult = 2)]
+        [TestCase(3, ExpectedResult = 4)]
+        [TestCase(100, ExpectedResult = 198)]
+        [TestCase(1298734, ExpectedResult = 2597466)]
+        public int NthEvenTest(int num)
+        {
+            return MuyFacil.NthEven(num);
+        }
+
+        [Test]
+        [TestCase(-4, ExpectedResult = -4)]
+        [TestCase(212, ExpectedResult = -212)]
+        [TestCase(-125, ExpectedResult = -125)]
+        [TestCase(932123, ExpectedResult = -932123)]
+        public int ReturnNegativeTest(int num)
+        {
+            return MuyFacil.ReturnNegative(num);
+        }
+
+        [Test]
+        [TestCase("John", "Doe", ExpectedResult = "Doe, John")]
+        [TestCase("First", "Last", ExpectedResult = "Last, First")]
+        [TestCase("A", "B", ExpectedResult = "B, A")]
+        [TestCase(",", ",", ExpectedResult = ",, ,")]
+        public string ConcatNameTest(string firstName, string lastName)
+        {
+            return MuyFacil.ConcatName(firstName, lastName);
+        }
+
+        [Test]
+        [TestCase(1, ExpectedResult = 1)]
+        [TestCase(2, ExpectedResult = 4)]
+        [TestCase(0, ExpectedResult = 0)]
+        [TestCase(5, ExpectedResult = 25)]
+        [TestCase(27, ExpectedResult = 729)]
+        [TestCase(196, ExpectedResult = 38416)]
+        [TestCase(512, ExpectedResult = 262144)]
+        public int StackBoxesTest(int num)
+        {
+            return MuyFacil.StackBoxes(num);
+        }
+
+
+        [Test]
+        [TestCase(5, 3, ExpectedResult = 15)]
+        [TestCase(8, 5, ExpectedResult = 40)]
+        [TestCase(5, 4, ExpectedResult = 20)]
+        [TestCase(2, 3, ExpectedResult = 6)]
+        [TestCase(10000, 10000, ExpectedResult = 100000000)]
+        [TestCase(-2, -5, ExpectedResult = -1)]
+        [TestCase(0, 3, ExpectedResult = -1)]
+        [TestCase(5, -3, ExpectedResult = -1)]
+        [TestCase(0, 1, ExpectedResult = -1)]
+        [TestCase(-1, 0, ExpectedResult = -1)]
+        public int RectangleAreaTest(int h, int w)
+        {
+            return MuyFacil.RectangleArea(h, w);
+        }
+
+        [Test]
+        [TestCase("", ExpectedResult = true)]
+        [TestCase(" ", ExpectedResult = false)]
+        [TestCase("            ", ExpectedResult = false)]
+        [TestCase("38215", ExpectedResult = false)]
+        [TestCase("afjabsdf", ExpectedResult = false)]
+        [TestCase("!?@&", ExpectedResult = false)]
+        public bool IsEmptyTest(string s)
+        {
+            return MuyFacil.IsEmpty(s);
+        }
+
+        [Test]
+        [TestCase("AB", "CD", ExpectedResult = true)]
+        [TestCase("ABC", "DE", ExpectedResult = false)]
+        [TestCase("hello", "edabit", ExpectedResult = false)]
+        [TestCase("meow", "woof", ExpectedResult = true)]
+        [TestCase("jrnvjrnnt", "cvjknfjvmfvnfjn", ExpectedResult = false)]
+        [TestCase("jkvnjrt", "krnf", ExpectedResult = false)]
+        [TestCase("Facebook", "Snapchat", ExpectedResult = true)]
+
+        public bool CompareStringsByLengthTest(string str1, string str2)
+        {
+            return MuyFacil.CompareStringsByLength(str1, str2);
+        }
+
+        [Test]
+        [TestCase(-5, ExpectedResult = true)]
+        [TestCase(-50, ExpectedResult = false)]
+        [TestCase(0, ExpectedResult = false)]
+        [TestCase(25, ExpectedResult = true)]
+        [TestCase(-19, ExpectedResult = true)]
+        [TestCase(12, ExpectedResult = false)]
+        [TestCase(23, ExpectedResult = true)]
+        [TestCase(-71, ExpectedResult = true)]
+        public bool IsOddTest(int num)
+        {
+            return MuyFacil.IsOdd(num);
+        }
+
     }
 
 }
