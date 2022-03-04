@@ -77,7 +77,6 @@ namespace EdabitMuyFacil
             {
                 return false;
             }
-
         }
         public static int Squared(int value)
         {
