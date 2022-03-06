@@ -110,12 +110,11 @@ namespace EdabitMuyFacil
 
         public static int Factorial(int num)
         {
-            int result = num;
-            for (int i = 1; i < num; i++)
+            if(num == 0)
             {
-                result *= i;
+                return 1;
             }
-            return result;
+            return num * (Factorial(num - 1));
         }
 
         public static int CountVowels(string str)
@@ -138,8 +137,7 @@ namespace EdabitMuyFacil
                     }
                 }
             }
-            return array;
-            
+            return array;            
         }
     }
 }
