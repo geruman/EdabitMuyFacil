@@ -134,7 +134,7 @@ namespace EdabitMuyFacil
 
         public static int ReturnNegative(int num)
         {
-            int aux = 0;
+            int aux = 0;            
             if (num > 0)
             {
                 return aux - num;

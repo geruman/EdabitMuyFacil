@@ -95,6 +95,7 @@ namespace EdabitMuyFacil
         {   
             return StringASCIIValue(num1) < StringASCIIValue(num2)? num1 : num2;            
         }
+        
         private static int StringASCIIValue(string s)
         {
             byte[] bytes = System.Text.Encoding.ASCII.GetBytes(s);
