@@ -184,19 +184,19 @@ namespace EdabitMuyFacil
             return true;
         }
 
-        public static bool IsStrangePair(string str1, string str2)
+        public static bool IsStrangePair(string firstWord, string secondWord)
         {
-            if (str1 == "" && str2 == "")
+            if (firstWord == "" && secondWord == "")
             {
                 return true;
             }
-            else if (str1 == "" || str2 == "")
+            else if (String.IsNullOrEmpty(firstWord)||String.IsNullOrEmpty(secondWord))
             {
                 return false;
             }
-            str1 = str1.ToLower();
-            str2 = str2.ToLower();
-            return str1[0] == str2[str2.Length - 1] && str1[str1.Length - 1] == str2[0];
+            firstWord = firstWord.ToLower();
+            secondWord = secondWord.ToLower();
+            return firstWord[0] == secondWord[secondWord.Length - 1] && firstWord[firstWord.Length - 1] == secondWord[0];
         }
 
         public static int SumSmallest(int[] values)
@@ -270,6 +270,7 @@ namespace EdabitMuyFacil
             {
                 if(!char.IsDigit(letter))
                 {
+
                     return false;
                 }
             }

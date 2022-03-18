@@ -139,7 +139,8 @@ namespace EdabitMuyFacilTests
         [TestCase('L', ExpectedResult = 108)]
         [TestCase('z', ExpectedResult = 90)]
         [TestCase('Z', ExpectedResult = 122)]
-
+        [TestCase('@', ExpectedResult = 64)]
+        [TestCase('\\', ExpectedResult = 92)]
         // Accented / weird letters
         [TestCase('è', ExpectedResult = 200)]
         [TestCase('È', ExpectedResult = 232)]
@@ -147,6 +148,7 @@ namespace EdabitMuyFacilTests
         [TestCase('œ', ExpectedResult = 338)]
         [TestCase('Ⱥ', ExpectedResult = 11365)]
         [TestCase('ⱥ', ExpectedResult = 570)]
+
 
         // These don't have a counterpart, you should return the input's char code
         [TestCase('5', ExpectedResult = 53)]
@@ -261,6 +263,8 @@ namespace EdabitMuyFacilTests
         [TestCase("a", "b", ExpectedResult = false)]
         [TestCase("&!", "!&", ExpectedResult = true)]
         [TestCase("5556", "65", ExpectedResult = true)]
+        [TestCase("", null, ExpectedResult = false)]
+        [TestCase(null, null, ExpectedResult = false)]
         public static bool IsStrangePairTest(string str1, string str2)
         {
             return Media.IsStrangePair(str1, str2);

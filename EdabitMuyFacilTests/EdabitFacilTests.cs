@@ -115,11 +115,30 @@ namespace EdabitMuyFacilTests
         [TestCase("100", "23", ExpectedResult = "23")]
         [TestCase("1500", "1", ExpectedResult = "1")]
         [TestCase("5", "5", ExpectedResult = "5")]
+        [TestCase("", "5", ExpectedResult = "")]
+        [TestCase("5", "", ExpectedResult = "")]
         public string SmallerNumTest(string num1, string num2)
         {
             return Facil.SmallerNum(num1, num2);
         }
 
+        [TestCase(null, "1000000000000")]
+        [TestCase(null, null)]
+        [TestCase("49", null)]
+        public void SmallerNumShouldThrowNullArgumentException(string num1, string num2)
+        {
+            Assert.Throws<ArgumentNullException>(() => { Facil.SmallerNum(num1, num2); });
+        }
+        [TestCase("-5", "1000000000000")]
+        [TestCase("-5", "-6")]
+        [TestCase("5", "-6")]
+        [TestCase("Hola", "-6")]
+        [TestCase("Hola", "Hello")]
+        [TestCase("8", "Hello")]
+        public void SmallerNumShouldThrowArgumentException(string num1, string num2)
+        {
+            Assert.Throws<ArgumentException>(() => { Facil.SmallerNum(num1, num2); });
+        }
 
         [Test]
         [TestCase(2, ExpectedResult = 2)]

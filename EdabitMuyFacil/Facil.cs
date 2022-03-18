@@ -91,22 +91,33 @@ namespace EdabitMuyFacil
             return  String.Join(" ", name.Split(" ").Reverse());
         }
 
-        public static string SmallerNum(string num1, string num2)
-        {   
-            return StringASCIIValue(num1) < StringASCIIValue(num2)? num1 : num2;            
+        public static string SmallerNum(string firstNumber, string secondNumber) 
+        {
+            if(firstNumber == null || secondNumber == null)
+            {
+                throw new ArgumentNullException("Parameters cannot be null");
+            }
+            return ByteStringValue(firstNumber) < ByteStringValue(secondNumber)? firstNumber : secondNumber;            
         }
         
-        private static int StringASCIIValue(string s)
-        {
-            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(s);
-            int acum = 0;
+        private static int ByteStringValue(string unparsedNumber)
+        {            
+            int acumulator = 0;
             int multiplier = 1;
-            for (int i = bytes.Length - 1; i >= 0; i--)
+            const int minNumberAsciiValue = 48;
+            const int maxNumberAsciiValue = 57;
+
+            for (int i = unparsedNumber.Length - 1; i >= 0; i--)
             {
-                acum += bytes[i] * multiplier;
+                int charByteValue = (byte)unparsedNumber[i];
+                if(charByteValue < minNumberAsciiValue || charByteValue > maxNumberAsciiValue)
+                {
+                    throw new ArgumentException("Values should be numbers");
+                }
+                acumulator +=  charByteValue * multiplier;
                 multiplier *= 10;
             }
-            return acum;
+            return acumulator;
         }
 
         public static int Factorial(int num)
