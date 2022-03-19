@@ -1,2 +1,2 @@
 # EdabitMuyFacil
-Este proyecto incluye los ejercicios de prueba de edabit en nivel de dificultad "muy facil"
+Este proyecto incluye los ejercicios de prueba de Edabit en nivel de dificultad "muy fácil", "fácil" y "media". Los mismos fueron llevados a cabo utilizando las metodologias pair programming (driver-navigator) y TDD junto con [leandroecorrea](https://github.com/leandroecorrea) en el curso de Software Engineering Ssr de Quark Academy.

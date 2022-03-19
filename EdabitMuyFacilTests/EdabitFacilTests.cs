@@ -107,7 +107,6 @@ namespace EdabitMuyFacilTests
             return Facil.NameShuffle(name);
         }
 
-
         [Test]
         [TestCase("21", "44", ExpectedResult = "21")]
         [TestCase("153", "367", ExpectedResult = "153")]
@@ -122,6 +121,7 @@ namespace EdabitMuyFacilTests
             return Facil.SmallerNum(num1, num2);
         }
 
+        [Test]
         [TestCase(null, "1000000000000")]
         [TestCase(null, null)]
         [TestCase("49", null)]
@@ -129,12 +129,16 @@ namespace EdabitMuyFacilTests
         {
             Assert.Throws<ArgumentNullException>(() => { Facil.SmallerNum(num1, num2); });
         }
+
+        [Test]
         [TestCase("-5", "1000000000000")]
         [TestCase("-5", "-6")]
         [TestCase("5", "-6")]
         [TestCase("Hola", "-6")]
         [TestCase("Hola", "Hello")]
         [TestCase("8", "Hello")]
+        [TestCase("Č", "1")]
+        [TestCase("İ", "1")]
         public void SmallerNumShouldThrowArgumentException(string num1, string num2)
         {
             Assert.Throws<ArgumentException>(() => { Facil.SmallerNum(num1, num2); });

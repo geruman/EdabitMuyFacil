@@ -97,10 +97,10 @@ namespace EdabitMuyFacil
             {
                 throw new ArgumentNullException("Parameters cannot be null");
             }
-            return ByteStringValue(firstNumber) < ByteStringValue(secondNumber)? firstNumber : secondNumber;            
+            return NumericStringValue(firstNumber) < NumericStringValue(secondNumber)? firstNumber : secondNumber;            
         }
         
-        private static int ByteStringValue(string unparsedNumber)
+        private static int NumericStringValue(string unparsedNumber)
         {            
             int acumulator = 0;
             int multiplier = 1;
@@ -108,8 +108,8 @@ namespace EdabitMuyFacil
             const int maxNumberAsciiValue = 57;
 
             for (int i = unparsedNumber.Length - 1; i >= 0; i--)
-            {
-                int charByteValue = (byte)unparsedNumber[i];
+            {                
+                int charByteValue = (int)unparsedNumber[i];
                 if(charByteValue < minNumberAsciiValue || charByteValue > maxNumberAsciiValue)
                 {
                     throw new ArgumentException("Values should be numbers");
